@@ -1,0 +1,383 @@
+.docx-viewer {
+  --docx-border: var(--background-modifier-border);
+  --docx-muted: var(--text-muted);
+  --docx-panel: var(--background-secondary);
+  --docx-panel-alt: var(--background-primary-alt);
+  --docx-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.docx-viewer__header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+.docx-viewer__title {
+  min-width: 0;
+}
+
+.docx-viewer__filename {
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docx-viewer__path,
+.docx-viewer__detail-path,
+.docx-viewer__media-path {
+  color: var(--docx-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.docx-viewer__toolbar {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.docx-viewer__search {
+  align-items: center;
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+  display: flex;
+  gap: 6px;
+  min-width: 220px;
+  padding: 4px 8px;
+}
+
+.docx-viewer__search-icon {
+  color: var(--docx-muted);
+  display: inline-flex;
+}
+
+.docx-viewer__search input {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  min-width: 0;
+  width: 100%;
+}
+
+.docx-viewer__icon-button {
+  align-items: center;
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  padding: 0;
+  width: 32px;
+}
+
+.docx-viewer__summary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.docx-viewer__pill,
+.docx-viewer__note {
+  background: var(--docx-panel);
+  border: 1px solid var(--docx-border);
+  border-radius: 999px;
+  color: var(--text-normal);
+  font-size: 12px;
+  line-height: 1.3;
+  padding: 4px 8px;
+}
+
+.docx-viewer__note {
+  color: var(--docx-muted);
+}
+
+.docx-viewer__warnings {
+  background: var(--background-modifier-error-rgb);
+  border: 1px solid var(--background-modifier-error);
+  border-radius: var(--docx-radius);
+  padding: 10px 12px;
+}
+
+.docx-viewer__warnings-title {
+  font-weight: 650;
+  margin-bottom: 4px;
+}
+
+.docx-viewer__warnings ul {
+  margin: 0;
+  padding-inline-start: 20px;
+}
+
+.docx-viewer__body {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 12px;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  min-height: 0;
+}
+
+.docx-viewer__sidebar,
+.docx-viewer__detail {
+  min-height: 0;
+  overflow: auto;
+}
+
+.docx-viewer__sidebar {
+  border-right: 1px solid var(--docx-border);
+  padding-right: 12px;
+}
+
+.docx-viewer__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docx-viewer__section-title {
+  color: var(--docx-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.docx-viewer__outline-button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--docx-radius);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 32px minmax(0, 1fr);
+  margin-bottom: 4px;
+  padding: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.docx-viewer__outline-button:hover,
+.docx-viewer__outline-button.is-active {
+  background: var(--docx-panel);
+  border-color: var(--docx-border);
+}
+
+.docx-viewer__outline-button.is-heading .docx-viewer__outline-title {
+  font-weight: 650;
+}
+
+.docx-viewer__outline-button.is-level-2 {
+  padding-left: 16px;
+}
+
+.docx-viewer__outline-button.is-level-3,
+.docx-viewer__outline-button.is-level-4,
+.docx-viewer__outline-button.is-level-5,
+.docx-viewer__outline-button.is-level-6 {
+  padding-left: 24px;
+}
+
+.docx-viewer__outline-index {
+  color: var(--docx-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.docx-viewer__outline-label {
+  min-width: 0;
+}
+
+.docx-viewer__outline-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docx-viewer__outline-meta,
+.docx-viewer__block-meta,
+.docx-viewer__annotation-meta,
+.docx-viewer__media-meta {
+  color: var(--docx-muted);
+  font-size: 12px;
+}
+
+.docx-viewer__card {
+  background: var(--background-primary);
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+  padding: 12px;
+}
+
+.docx-viewer__detail-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.docx-viewer__detail-title {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.docx-viewer__block {
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.docx-viewer__block.is-active {
+  background: var(--docx-panel-alt);
+}
+
+.docx-viewer__block.is-heading .docx-viewer__paragraph {
+  font-weight: 650;
+}
+
+.docx-viewer__block-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.docx-viewer__paragraph,
+.docx-viewer__annotation-text {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.docx-viewer__table-wrap {
+  overflow: auto;
+}
+
+.docx-viewer__table,
+.docx-viewer__package-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 100%;
+}
+
+.docx-viewer__table td,
+.docx-viewer__package-table td,
+.docx-viewer__package-table th {
+  border: 1px solid var(--docx-border);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.docx-viewer__package-table th {
+  background: var(--docx-panel);
+  font-weight: 650;
+  position: sticky;
+  top: 0;
+}
+
+.docx-viewer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.docx-viewer__link-pill {
+  align-items: center;
+  background: var(--docx-panel);
+  border: 1px solid var(--docx-border);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 6px;
+  max-width: 100%;
+  padding: 3px 8px;
+}
+
+.docx-viewer__link-target,
+.docx-viewer__link-external {
+  color: var(--docx-muted);
+  overflow-wrap: anywhere;
+}
+
+.docx-viewer__annotation {
+  border-top: 1px solid var(--docx-border);
+  padding: 8px 0;
+}
+
+.docx-viewer__annotation:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.docx-viewer__media-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.docx-viewer__media-card {
+  background: var(--docx-panel);
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+  padding: 8px;
+}
+
+.docx-viewer__media-name {
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docx-viewer__empty,
+.docx-viewer__message {
+  color: var(--docx-muted);
+  padding: 12px;
+}
+
+.docx-viewer__message {
+  background: var(--docx-panel);
+  border: 1px solid var(--docx-border);
+  border-radius: var(--docx-radius);
+}
+
+@media (max-width: 760px) {
+  .docx-viewer {
+    padding: 10px;
+  }
+
+  .docx-viewer__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .docx-viewer__toolbar,
+  .docx-viewer__search {
+    width: 100%;
+  }
+
+  .docx-viewer__body {
+    grid-template-columns: 1fr;
+  }
+
+  .docx-viewer__sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--docx-border);
+    max-height: 220px;
+    padding-bottom: 12px;
+    padding-right: 0;
+  }
+}
