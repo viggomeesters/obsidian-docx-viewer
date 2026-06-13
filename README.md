@@ -44,8 +44,9 @@ The plugin does not use network APIs, clipboard APIs, shell calls, external app 
 npm install
 node scripts/create-fixtures.mjs
 npm run build
-npx tsc --noEmit
+npm run typecheck
 npm test
+npm run community:check
 ```
 
 ## Release
